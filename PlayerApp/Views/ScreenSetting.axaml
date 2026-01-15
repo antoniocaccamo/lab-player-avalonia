@@ -1,0 +1,139 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PlayerApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PlayerApp.Views.ScreenSetting"
+             x:DataType="vm:ScreenViewModel"
+             >
+
+     <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:ScreenViewModel/>
+    </Design.DataContext>
+    
+    <UserControl.Styles>
+        
+    
+    
+    <Style Selector="HeaderedContentControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+        
+                    <!-- Header -->
+                    <Border 
+                        ZIndex="1" 
+                        Background="{DynamicResource SystemControlBackgroundAltHighBrush}" 
+                        Padding="5,0,5,0" 
+                        Margin="5,0,0,0">
+                        <TextBlock 
+                            Text="{TemplateBinding Header}" 
+                            FontWeight="Bold"/>
+                    </Border>
+        
+                    <!-- Content Area -->
+                    <Border 
+                        Grid.RowSpan="2" 
+                        Padding="0,5,0,0"
+                        Grid.ColumnSpan="2"
+                        CornerRadius="4"
+                        Margin="0,10,0,0"
+                        BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                        BorderThickness="1">
+                        <ContentPresenter 
+                            Name="PART_ContentPresenter"
+                            Padding="8"
+                            Content="{TemplateBinding Content}"/>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+        
+    </UserControl.Styles>
+    
+    
+    <DockPanel Margin="10">
+        
+        <CheckBox DockPanel.Dock="Top" IsChecked="{Binding Locked}" Margin="5">
+            <TextBlock Text="{Binding Title}"/>
+        </CheckBox>
+        
+        <Grid DockPanel.Dock="Bottom" 
+              RowDefinitions="*, Auto" 
+              ColumnDefinitions="*, *" 
+              HorizontalAlignment="Stretch" 
+              VerticalAlignment="Stretch"
+              Margin="10"
+              >
+            
+            <HeaderedContentControl Grid.Row="0" Grid.Column="0" VerticalAlignment="Top"  Header="Size" Margin="5">
+                <Grid Grid.Row="0" Grid.Column="0" 
+                      RowDefinitions="*, *" 
+                      ColumnDefinitions="*, *" 
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch"
+                       Margin="10"
+                      >
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" >Width</TextBlock>
+                    <!-- <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Width" Text="{Binding Width}"></TextBlock> -->
+                    <NumericUpDown Grid.Row="0" Grid.Column="1"
+                                   Minimum="0" Increment="1"
+                                   FormatString="0"
+                                   Value="{Binding Width}" 
+                    />
+                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" >Height</TextBlock>
+                    <!-- <TextBlock Grid.Row="1" Grid.Column="1" x:Name="Height" Text="{Binding Height}"></TextBlock> -->
+                    <NumericUpDown Grid.Row="1" Grid.Column="1"
+                                   Minimum="0" Increment="1"
+                                   FormatString="0"
+                                   Value="{Binding Heigth}" 
+                    />
+                </Grid>
+            </HeaderedContentControl>
+            
+            <HeaderedContentControl Grid.Row="0" Grid.Column="1" VerticalAlignment="Top"  Header="Position" Margin="5">
+                <Grid Grid.Row="0" Grid.Column="0" 
+                      RowDefinitions="*, *" 
+                      ColumnDefinitions="*, *" 
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch"
+                      Margin="10"
+                      >
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" >Top</TextBlock>
+                    <!-- <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Top" Text="{Binding Top}"></TextBlock> -->
+                    <NumericUpDown Grid.Row="0" Grid.Column="1"
+                                   Minimum="0" Increment="1"
+                                   FormatString="0"
+                                   Value="{Binding Top}" 
+                    />
+                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" >Left</TextBlock>
+                    <!-- <TextBlock Grid.Row="1" Grid.Column="1" x:Name="Left" Text="{Binding Left}"></TextBlock> -->
+                    <NumericUpDown Grid.Row="1" Grid.Column="1" 
+                                   
+                                   Minimum="0" Increment="1"
+                                   FormatString="0"
+                                   Value="{Binding Left}" 
+                                   />
+                </Grid>
+            </HeaderedContentControl>
+            
+        </Grid>
+        
+    </DockPanel>
+    
+    
+
+  
+</UserControl>

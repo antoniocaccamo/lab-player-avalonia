@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;PhysicalFolder Path="/home/antonio/.nuget/packages/avalonia.desktop/11.3.10" Loaded="True" /&gt;
+  &lt;PhysicalFolder Path="/home/antonio/.nuget/packages/avalonia.desktop/11.3.11" Loaded="True" /&gt;
+  &lt;PhysicalFolder Path="/home/antonio/.nuget/packages/avalonia.desktop/11.3.8" Loaded="True" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:Boolean x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/ShowAdvancedOptions/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=27FE10C4_002D2F60_002D4C4B_002DB358_002DC732729FBBC5/@EntryIndexedValue">PlayerApp.Models.Tests</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=D73A0F43_002DBB27_002D421E_002DBF48_002DDD212DAB7601/@EntryIndexedValue">PlayerApp.Services.Tests</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=7ad1dac8_002D7fbe_002D49d5_002D8614_002D7321233db82e_0023PlayerApp_002EAndroid/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=ebd9022f_002Dbc83_002D4846_002D9a11_002D6f7f3772dc64_0023PlayerApp_002EiOS/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

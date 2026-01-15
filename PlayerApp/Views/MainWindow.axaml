@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:PlayerApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="PlayerApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        xmlns:views="clr-namespace:PlayerApp.Views"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="PlayerApp">
+
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    
+    <!-- <TrayIcon.Icons> -->
+    <!--     <TrayIcons> -->
+    <!--         <TrayIcon Icon="/Assets/avalonia-logo.ico" -->
+    <!--                   ToolTipText="Avalonia Tray Icon ToolTip"> -->
+    <!--             <TrayIcon.Menu> -->
+    <!--                 <NativeMenu> -->
+    <!--                     <NativeMenuItem Header="Close" Click="FileClose_OnClick" /> -->
+    <!--                 </NativeMenu> -->
+    <!--             </TrayIcon.Menu> -->
+    <!--         </TrayIcon> -->
+    <!--     </TrayIcons> -->
+    <!-- </TrayIcon.Icons> -->
+
+    <NativeMenu.Menu>
+        <NativeMenu>
+            <NativeMenuItem Header="File" IsVisible="true">
+                <NativeMenu>
+                    <NativeMenuItem Header="Close" Click="FileClose_OnClick" Gesture="Meta+C" />
+                </NativeMenu>
+            </NativeMenuItem>
+        </NativeMenu>
+    </NativeMenu.Menu>
+
+    <Grid RowDefinitions="Auto, *">
+
+        <TextBlock Grid.Row="0" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <TabControl Grid.Row="1" ItemsSource="{Binding ScreenViewModels }">
+            <TabControl.ItemTemplate>
+                <DataTemplate x:DataType="vm:ScreenViewModel">
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate x:DataType="vm:ScreenViewModel">
+                    <views:ScreenSetting DataContext="{Binding}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+        
+        <!-- <TabStrip ItemsSource="{Binding ScreenSettingViewModels}" Grid.Row="1"> -->
+        <!--     <TabStrip.ItemTemplate> -->
+        <!--         <DataTemplate x:DataType="vm:ScreenSettingViewModel"> -->
+        <!--             <StackPanel> -->
+        <!--             <TextBlock Text="{Binding Title}" /> -->
+        <!--             <views:ScreenSetting DataContext="{Binding}" /> -->
+        <!--             </StackPanel> -->
+        <!--         </DataTemplate> -->
+        <!--     </TabStrip.ItemTemplate> -->
+        <!-- </TabStrip> -->
+        
+     
+    </Grid>
+
+
+</Window>
