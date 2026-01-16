@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reactive;
 using Avalonia;
+using DynamicData.Kernel;
 //using Microsoft.Extensions.DependencyInjection;
 using PlayerApp.Models;
 using PlayerApp.Services.Configuration;
@@ -23,7 +24,8 @@ public partial class MainWindowViewModel : BaseViewModel, IScreen
     private PixelPoint _position;
     
     
-    //private ScreensViewModel _screensViewModel ;
+    private ScreensViewModel _screensViewModel ;
+    
     private BaseViewModel _currentViewModel;
 
     private readonly IConfigurationService _configurationService 
@@ -32,6 +34,8 @@ public partial class MainWindowViewModel : BaseViewModel, IScreen
     
     private ObservableCollection<ScreenSettingViewModel> _screenViewModels = [];
     
+    private LibraryViewModel _libraryViewModel;
+
     public RoutingState Router { get; } = new ();
 
     public MainWindowViewModel()
@@ -43,29 +47,27 @@ public partial class MainWindowViewModel : BaseViewModel, IScreen
         this._position = new PixelPoint(_config.Location.X, _config.Location.Y);
         
        
-        //_screensViewModel = new ScreensViewModel();
-       
+        _screensViewModel = new ScreensViewModel();
+        _libraryViewModel = new LibraryViewModel();
+        
+        _config.Screens.AsList()
+            .ForEach(screen => _screenViewModels.Add(new ScreenSettingViewModel(screen)));
+        
         
 
-        foreach (var screen in _config.Screens)
-        {
-            
-            this._screenViewModels.Add(new ScreenSettingViewModel(screen));
-        }
-
-        ShowScreensSettingCommand = ReactiveCommand.Create(() =>
-        {
-            this.Log().Info("Show screens settings");
-            var routable = Locator.Current.GetService<ScreensViewModel>()!;
-            GoTo(routable);
-        });
-        
-        ShowLibraryCommand = ReactiveCommand.Create(() =>
-        {
-            this.Log().Info("Show library");
-            var routable = Locator.Current.GetService<LibraryViewModel>()!;
-            GoTo(routable);
-        });
+        // ShowScreensSettingCommand = ReactiveCommand.Create(() =>
+        // {
+        //     this.Log().Info("Show screens settings");
+        //     var routable = Locator.Current.GetService<ScreensViewModel>()!;
+        //     GoTo(routable);
+        // });
+        //
+        // ShowLibraryCommand = ReactiveCommand.Create(() =>
+        // {
+        //     this.Log().Info("Show library");
+        //     var routable = Locator.Current.GetService<LibraryViewModel>()!;
+        //     GoTo(routable);
+        // });
 
         
 
@@ -94,13 +96,13 @@ public partial class MainWindowViewModel : BaseViewModel, IScreen
         
     }
 
-    private void GoTo(RoutableBaseViewModel routable)
-    {
-        Router.Navigate.Execute(routable)
-            .Subscribe(
-                    
-            );
-    }
+    // private void GoTo(RoutableBaseViewModel routable)
+    // {
+    //     Router.Navigate.Execute(routable)
+    //         .Subscribe(
+    //                 
+    //         );
+    // }
 
 
 
@@ -134,11 +136,15 @@ public partial class MainWindowViewModel : BaseViewModel, IScreen
         set => this.RaiseAndSetIfChanged(ref _currentViewModel, value);
     }
 
-    public ReactiveCommand<Unit, Unit> ShowScreensSettingCommand { get; }
+    // public ReactiveCommand<Unit, Unit> ShowScreensSettingCommand { get; }
+    //
+    // public ReactiveCommand<Unit, Unit> ShowLibraryCommand { get; }
     
-    public ReactiveCommand<Unit, Unit> ShowLibraryCommand { get; }
-    
-    public RoutableBaseViewModel ScreensViewModel  => Locator.Current.GetService<ScreensViewModel>()!;
+    // public RoutableBaseViewModel ScreensViewModel
+    // {
+    //     get => _screensViewModel;
+    //     set => this.RaiseAndSetIfChanged(ref _screensViewModel, value);
+    // }
 
     //public ReactiveCommand<string,Unit> ShowCommand { get; }
 

@@ -36,9 +36,6 @@ public partial class App : Application
         var mainWindowViewModel = new MainWindowViewModel();
         Locator.CurrentMutable.RegisterLazySingleton(()=> mainWindowViewModel, typeof(IScreen));
         
-        Locator.CurrentMutable.RegisterConstant(new LibraryViewModel());
-        Locator.CurrentMutable.RegisterConstant(new ScreensViewModel());    
-        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 

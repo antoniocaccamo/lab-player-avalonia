@@ -36,27 +36,22 @@
         
     
 
-    <!-- <NativeMenu.Menu> -->
-    <!--     <NativeMenu> -->
-    <!--         <NativeMenuItem Header="File" IsVisible="true"> -->
-    <!--             <NativeMenu> -->
-    <!--                 <NativeMenuItem Header="Screens Settings"  -->
-    <!--                                 Command="{Binding ShowCommand}" -->
-    <!--                                 CommandParameter="Library"></NativeMenuItem> -->
-    <!--                 <NativeMenuItem Header="Library" Command="{Binding ShowLibraryCommand}" ></NativeMenuItem> -->
-    <!--                 <NativeMenuItemSeparator/> -->
-    <!--                 <NativeMenuItem Header="Close"  Click="FileClose_OnClick" Gesture="Meta+C" /> -->
-    <!--             </NativeMenu> -->
-    <!--         </NativeMenuItem> -->
-    <!--     </NativeMenu> -->
-    <!-- </NativeMenu.Menu> -->
+    <NativeMenu.Menu>
+        <NativeMenu>
+            <NativeMenuItem Header="File" IsVisible="true">
+                <NativeMenu>
+                    <NativeMenuItem Header="Close"  Click="NativeMenuItem_OnClickFileClose_OnClick" Gesture="Meta+C" />
+                </NativeMenu>
+            </NativeMenuItem>
+        </NativeMenu>
+    </NativeMenu.Menu>
     
     
           
     <Menu DockPanel.Dock="Top">
         <MenuItem Header="_File">
-            <MenuItem Header="Show Screens" Command="{Binding ShowScreensSettingCommand}"/>
-            <MenuItem Header="Show Library" Command="{Binding ShowLibraryCommand}"/>
+            <!-- <MenuItem Header="Show Screens" Command="{Binding ShowScreensSettingCommand}"/> -->
+            <!-- <MenuItem Header="Show Library" Command="{Binding ShowLibraryCommand}"/> -->
             <Separator/>
             <MenuItem Header="_Exit" Click="FileClose_OnClick"/>
         </MenuItem>
@@ -68,27 +63,19 @@
 
        
         
-        <rxui:RoutedViewHost Grid.Row="0" Router="{Binding Router}">
-            <rxui:RoutedViewHost.DefaultContent>
-                <views:ScreensView DataContext="{Binding ScreensViewModel}"/>
-            </rxui:RoutedViewHost.DefaultContent>
-            <rxui:RoutedViewHost.ViewLocator>
-                <app:ViewLocator />
-            </rxui:RoutedViewHost.ViewLocator>
-        </rxui:RoutedViewHost>
-
-        <!-- <TabControl Grid.Row="1" ItemsSource="{Binding ScreenViewModels }"> -->
-        <!--     <TabControl.ItemTemplate> -->
-        <!--         <DataTemplate x:DataType="vm:ScreenSettingViewModel"> -->
-        <!--             <TextBlock Text="{Binding Title}" /> -->
-        <!--         </DataTemplate> -->
-        <!--     </TabControl.ItemTemplate> -->
-        <!--     <TabControl.ContentTemplate> -->
-        <!--         <DataTemplate x:DataType="vm:ScreenSettingViewModel"> -->
-        <!--             <views:ScreenSettingView DataContext="{Binding}" /> -->
-        <!--         </DataTemplate> -->
-        <!--     </TabControl.ContentTemplate> -->
-        <!-- </TabControl> -->
+  
+        <TabControl Grid.Row="1" ItemsSource="{Binding ScreenViewModels }">
+            <TabControl.ItemTemplate>
+                <DataTemplate x:DataType="vm:ScreenSettingViewModel">
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate x:DataType="vm:ScreenSettingViewModel">
+                    <views:ScreenSettingView DataContext="{Binding}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
         
         <!-- <TabStrip ItemsSource="{Binding ScreenSettingViewModels}" Grid.Row="1"> -->
         <!--     <TabStrip.ItemTemplate> -->

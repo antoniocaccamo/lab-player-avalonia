@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Reactive.Disposables.Fluent;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
+using DynamicData.Kernel;
 using PlayerApp.ViewModels;
 using ReactiveUI;
 using ReactiveUI.Avalonia;
@@ -25,24 +27,27 @@ namespace PlayerApp.Views
                 this.Bind(ViewModel, vm => vm.Position, v => v.Position)
                     .DisposeWith(disposables);
                 /* Handle view activation etc. */
-
-                foreach (var screenWindowViewModel in ViewModel!.ScreenViewModels)
-
-                {
-                    var win = new ScreenWindow
+                
+                ViewModel!.ScreenViewModels.AsList()
+                    .ForEach(screenWindowViewModel =>
                     {
-                        //SystemDecorations = SystemDecorations.None,
-                        DataContext = screenWindowViewModel
-                    };
-                    win.Show();
-                    _screenWindows.AddLast(win);
-                }
+                        var window = new ScreenWindow()
+                        {
+                            DataContext = screenWindowViewModel
+                            
+                        };
+                        _screenWindows.AddLast(window);
+                        Dispatcher.UIThread.Post( () => window.Show());
+
+                    });
+
+                
                 
                 this.PositionChanged += (sender, args) => { this.ViewModel!.Position = this.Position; };
                 this.Closing += (sender, args) =>
                 {
-                    foreach (var win in _screenWindows)
-                        win.Close();
+                    _screenWindows.AsList().ForEach(win => win.Close());
+                    
                 };
             });
             AvaloniaXamlLoader.Load(this);
@@ -50,6 +55,11 @@ namespace PlayerApp.Views
 
 
         private void FileClose_OnClick(object? sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void NativeMenuItem_OnClickFileClose_OnClick(object? sender, EventArgs e)
         {
             Close();
         }

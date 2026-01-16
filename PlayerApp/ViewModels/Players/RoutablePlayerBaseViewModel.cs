@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace PlayerApp.ViewModels.Players;
 
-public class RoutableBaseViewModel : BaseViewModel, IRoutableViewModel
+public class RoutablePlayerBaseViewModel : PlayerBaseViewModel, IRoutableViewModel
 {
     
     public IScreen HostScreen { get; }
@@ -12,5 +12,5 @@ public class RoutableBaseViewModel : BaseViewModel, IRoutableViewModel
     public string UrlPathSegment { get; } = Guid.NewGuid().ToString().Substring(0, 5);
 
     
-    public RoutableBaseViewModel(IScreen screen) => HostScreen = screen;
+    public RoutablePlayerBaseViewModel(IScreen screen) => HostScreen = screen;
 }

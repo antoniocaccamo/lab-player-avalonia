@@ -46,14 +46,14 @@ public partial class ScreenSettingViewModel : BaseViewModel
             .Subscribe(w =>
             {
                 _screen.Size.Width = w;
-                Dump();
+                Dump("Width");
             });
         
         this.WhenAnyValue(vm => vm.Heigth)
             .Subscribe(h =>
             {
                 _screen.Size.Height = h;
-                Dump();
+                Dump("Height");
             });
         
         this.WhenAnyValue(vm => vm.Left)
@@ -61,7 +61,7 @@ public partial class ScreenSettingViewModel : BaseViewModel
             {
                 _screen.Location.X = h;
                 Position = new PixelPoint(_screen.Location.X, _screen.Location.Y); 
-                Dump();
+                Dump("Left");
             });
         
         this.WhenAnyValue(vm => vm.Top)
@@ -69,7 +69,7 @@ public partial class ScreenSettingViewModel : BaseViewModel
             {
                 _screen.Location.Y = h;
                 Position = new PixelPoint(_screen.Location.X, _screen.Location.Y); 
-                Dump();
+                Dump("Top");
             });
         
         this.WhenAnyValue(vm => vm.Position)
@@ -77,13 +77,13 @@ public partial class ScreenSettingViewModel : BaseViewModel
             {
                 _screen.Location.X = pos.X;
                 _screen.Location.Y = pos.Y;
-                Dump();
+                Dump("position");
             });
     }
     
-    private void Dump()
+    private void Dump(string changed)
     {
-        this.Log().Info($"screen: {_screen}");
+        this.Log().Info($" changed {changed} => {_screen}");
     }
 
     public int Width {
@@ -128,4 +128,6 @@ public partial class ScreenSettingViewModel : BaseViewModel
         get => _currentPlayer; 
         protected set => this.RaiseAndSetIfChanged(ref _currentPlayer, value);
     }
+
+    public Screen Screen => _screen;
 }
