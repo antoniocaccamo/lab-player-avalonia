@@ -4,9 +4,9 @@ using LibVLCSharp.Shared;
 using ReactiveUI;
 using Splat;
 
-namespace PlayerApp.ViewModels;
+namespace PlayerApp.ViewModels.Players;
 
-public class VideoPlayerViewModel : ViewModelBase, IDisposable
+public class VideoPlayerViewModel : PlayerBaseViewModel, IDisposable
 {
     private readonly LibVLC _libVlc;
     private readonly MediaPlayer _mediaPlayer;

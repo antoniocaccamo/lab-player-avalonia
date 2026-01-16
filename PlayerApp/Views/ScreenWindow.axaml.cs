@@ -6,7 +6,7 @@ using ReactiveUI.Avalonia;
 
 namespace PlayerApp.Views;
 
-public partial class ScreenWindow : ReactiveWindow<ScreenViewModel>
+public partial class ScreenWindow : ReactiveWindow<ScreenSettingViewModel>
 {
     public ScreenWindow()
     {

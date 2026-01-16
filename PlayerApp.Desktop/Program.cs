@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Controls;
 using ReactiveUI.Avalonia;
 
 namespace PlayerApp.Desktop;

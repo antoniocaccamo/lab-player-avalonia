@@ -1,17 +1,19 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
-using PlayerApp.ViewModels;
+using PlayerApp.ViewModels.Players;
 using ReactiveUI;
 using ReactiveUI.Avalonia;
 using Splat;
 
-namespace PlayerApp.Views
+namespace PlayerApp.Views.Players
 {
 
-    public partial class VideoPlayer : ReactiveUserControl<VideoPlayerViewModel>, IEnableLogger
+    public partial class VideoPlayerView : ReactiveUserControl<VideoPlayerViewModel>, IEnableLogger
     {
-        public VideoPlayer()
+        
+        
+        public VideoPlayerView()
         {
             this.WhenActivated(disposables =>
             {

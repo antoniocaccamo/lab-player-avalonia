@@ -5,6 +5,6 @@ namespace PlayerApp.Services.Configuration;
 public interface IConfigurationService
 {
 
-    Models.Configuration Read();
+    Models.Configuration Get();
 
 }

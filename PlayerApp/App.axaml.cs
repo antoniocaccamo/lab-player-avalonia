@@ -4,10 +4,12 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
-using Microsoft.Extensions.DependencyInjection;
+//using Microsoft.Extensions.DependencyInjection;
 using PlayerApp.Services;
 using PlayerApp.ViewModels;
 using PlayerApp.Views;
+using ReactiveUI;
+using Splat;
 
 
 namespace PlayerApp;
@@ -24,11 +26,18 @@ public partial class App : Application
         
         LibVLCSharp.Shared.Core.Initialize();
 
-        var serviceColleciolnt = new ServiceCollection();
-        serviceColleciolnt.AddCommonServices();
+        //var serviceColleciolnt = new ServiceCollection();
+        // serviceColleciolnt.AddCommonServices();
 
-        App.ServiceProvider = serviceColleciolnt.BuildServiceProvider();
-            
+        //App.ServiceProvider = serviceColleciolnt.BuildServiceProvider();
+        
+        ServiceCollectionExtensions.AddCommonServices();
+
+        var mainWindowViewModel = new MainWindowViewModel();
+        Locator.CurrentMutable.RegisterLazySingleton(()=> mainWindowViewModel, typeof(IScreen));
+        
+        Locator.CurrentMutable.RegisterConstant(new LibraryViewModel());
+        Locator.CurrentMutable.RegisterConstant(new ScreensViewModel());    
         
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
@@ -37,14 +46,14 @@ public partial class App : Application
             DisableAvaloniaDataAnnotationValidation();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = mainWindowViewModel
             };
         }
 
         base.OnFrameworkInitializationCompleted();
     }
 
-    public static ServiceProvider ServiceProvider { get; set; }
+    //public static ServiceProvider ServiceProvider { get; set; }
 
 
     private void DisableAvaloniaDataAnnotationValidation()

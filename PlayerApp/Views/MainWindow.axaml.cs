@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reactive.Disposables.Fluent;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using PlayerApp.ViewModels;
 using ReactiveUI;
@@ -47,9 +48,10 @@ namespace PlayerApp.Views
             AvaloniaXamlLoader.Load(this);
         }
 
-        private void FileClose_OnClick(object? sender, EventArgs e)
+
+        private void FileClose_OnClick(object? sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

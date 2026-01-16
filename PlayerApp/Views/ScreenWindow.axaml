@@ -6,7 +6,7 @@
         xmlns:vm="using:PlayerApp.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="PlayerApp.Views.ScreenWindow"
-        x:DataType="vm:ScreenViewModel"
+        x:DataType="vm:ScreenSettingViewModel"
         Title="{Binding Title}"
         SystemDecorations="None"
         Icon="/Assets/avalonia-logo.ico">
@@ -14,20 +14,21 @@
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:ScreenViewModel/>
+        <vm:ScreenSettingViewModel/>
     </Design.DataContext>
     
     <Grid RowDefinitions="Auto, *">
 
         <TextBlock Grid.Row="0" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         
-        <TransitioningContentControl Grid.Row="1">
+        <TransitioningContentControl Grid.Row="1" 
+                                     Content="{Binding CurrentPlayer}">
             
             
             
         </TransitioningContentControl>
 
-        <views:VideoPlayer Grid.Row="1" DataContext="{Binding VideoPlayerViewModel}"/>
+        <!-- <views:VideoPlayer Grid.Row="1" DataContext="{Binding VideoPlayerViewModel}"/> -->
    
     </Grid>
 </Window>

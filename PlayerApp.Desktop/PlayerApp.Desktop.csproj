@@ -21,6 +21,11 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Condition="$([MSBuild]::IsOsPlatform('Windows'))" Include="VideoLAN.LibVLC.Windows" />
+        <PackageReference Condition="$([MSBuild]::IsOsPlatform('OSX'))" Include="VideoLAN.LibVLC.Mac"  />
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\PlayerApp\PlayerApp.csproj"/>
     </ItemGroup>
 </Project>

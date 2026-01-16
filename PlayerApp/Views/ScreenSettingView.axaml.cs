@@ -5,9 +5,9 @@ using ReactiveUI.Avalonia;
 
 namespace PlayerApp.Views;
 
-public partial class ScreenSetting : ReactiveUserControl<ScreenSettingViewModel>
+public partial class ScreenSettingView : ReactiveUserControl<ScreenSettingViewModel>
 {
-    public ScreenSetting()
+    public ScreenSettingView()
     {
         this.WhenActivated(disposables =>
             {

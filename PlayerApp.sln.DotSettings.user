@@ -1,4 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AILogger_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2025_002E1_003Fresharper_002Dhost_003FSourcesCache_003Fe8d0b2f3fa9c1134969e9e3042e6b389d5e57b9efd1587a9c9bccfb87f6e67_003FILogger_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;PhysicalFolder Path="/home/antonio/.nuget/packages/avalonia.desktop/11.3.10" Loaded="True" /&gt;
   &lt;PhysicalFolder Path="/home/antonio/.nuget/packages/avalonia.desktop/11.3.11" Loaded="True" /&gt;
@@ -8,5 +9,10 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=27FE10C4_002D2F60_002D4C4B_002DB358_002DC732729FBBC5/@EntryIndexedValue">PlayerApp.Models.Tests</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=D73A0F43_002DBB27_002D421E_002DBF48_002DDD212DAB7601/@EntryIndexedValue">PlayerApp.Services.Tests</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2a071244_002D5d1e_002D4886_002Dbfd6_002D12d32deaf8bc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=7ad1dac8_002D7fbe_002D49d5_002D8614_002D7321233db82e_0023PlayerApp_002EAndroid/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=a2a7f00f_002Dd31a_002Dcb21_002D5792_002D870fd637c259_0023PlayerApp_002EAndroid/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=dfdb6036_002D1ed1_002D2b6a_002Da30f_002Da86d19955d58_0023PlayerApp_002EiOS/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=ebd9022f_002Dbc83_002D4846_002D9a11_002D6f7f3772dc64_0023PlayerApp_002EiOS/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

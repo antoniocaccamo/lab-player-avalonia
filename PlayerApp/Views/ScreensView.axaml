@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:v="using:PlayerApp.Views"
+             xmlns:vm="using:PlayerApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PlayerApp.Views.ScreensView"
+             x:DataType="vm:ScreensViewModel">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:ScreensViewModel/>
+    </Design.DataContext>
+    
+    
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- <TextBlock Grid.Row="0" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center" /> -->
+
+        <TabControl Grid.Row="1" ItemsSource="{Binding ScreensViewModels }">
+            <TabControl.ItemTemplate>
+                <DataTemplate x:DataType="vm:ScreenSettingViewModel">
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate x:DataType="vm:ScreenSettingViewModel">
+                    <v:ScreenSettingView DataContext="{Binding}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+        
+        <!-- <TabStrip ItemsSource="{Binding ScreenSettingViewModels}" Grid.Row="1"> -->
+        <!--     <TabStrip.ItemTemplate> -->
+        <!--         <DataTemplate x:DataType="vm:ScreenSettingViewModel"> -->
+        <!--             <StackPanel> -->
+        <!--             <TextBlock Text="{Binding Title}" /> -->
+        <!--             <views:ScreenSetting DataContext="{Binding}" /> -->
+        <!--             </StackPanel> -->
+        <!--         </DataTemplate> -->
+        <!--     </TabStrip.ItemTemplate> -->
+        <!-- </TabStrip> -->
+        
+     
+    </Grid>
+    
+</UserControl>

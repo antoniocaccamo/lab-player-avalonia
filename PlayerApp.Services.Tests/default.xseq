@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence
+    xmlns="http://sequencemovieplayer.antanysavage.it/sequences/schema" name="default">
+    <videos>
+        <video id="1"
+            path="C:\Develop\Workspaces\maxischermiled-it\player-srcs\videos\default\at.image.jpg"
+            duration="5.0" daysOfWeek="1111111" limited="0" group="" type="Photo"/>
+        <video id="2" duration="5.0" daysOfWeek="1111111" limited="0"
+            group="" type="Weather"/>
+        <video id="3" path="videos\default\at.video.mov" duration="-1.0"
+            daysOfWeek="1111111" limited="0" group="" type="Video"/>
+        <video id="4" path="C:\Windows\System32\DefaultAccountTile.png"
+            duration="5.0" daysOfWeek="1111111" limited="0" group="" type="Photo"/>
+    </videos>
+</sequence>

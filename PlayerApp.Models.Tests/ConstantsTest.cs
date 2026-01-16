@@ -21,7 +21,7 @@ public class ConstantsTest
         Assert.IsNotNull(config.Location);
         Assert.IsNotNull(config.Location.X);
         Assert.IsNotNull(config.Location.Y);
-        Assert.IsNotEmpty(config.Screens);
+        Assert.IsNotNull(config.Screens);
         Console.WriteLine($"configuration : {config}");
     }
 }

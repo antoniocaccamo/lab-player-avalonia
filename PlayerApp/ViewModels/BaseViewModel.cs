@@ -5,11 +5,11 @@ using Splat;
 
 namespace PlayerApp.ViewModels
 {
-    public class ViewModelBase : ReactiveObject, IActivatableViewModel, IEnableLogger
+    public class BaseViewModel : ReactiveObject, IActivatableViewModel, IRoutableViewModel, IEnableLogger
     {
         public ViewModelActivator Activator { get; }
 
-        protected ViewModelBase()
+        protected BaseViewModel()
         {
             Activator = new ViewModelActivator();
             this.WhenActivated((CompositeDisposable disposables) =>
@@ -23,5 +23,8 @@ namespace PlayerApp.ViewModels
                     .DisposeWith(disposables);
             });
         }
+
+        public string? UrlPathSegment { get; } 
+        public IScreen HostScreen { get; }
     }
 }

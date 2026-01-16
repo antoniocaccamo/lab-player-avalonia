@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="PlayerApp.Android/PlayerApp.Android.csproj" />
+<!--  <Project Path="PlayerApp.Browser/PlayerApp.Browser.csproj" />-->
+  <Project Path="PlayerApp.Desktop/PlayerApp.Desktop.csproj" />
+  <Project Path="PlayerApp.Events/PlayerApp.Events.csproj" />
+  <Project Path="PlayerApp.iOS/PlayerApp.iOS.csproj" />
+  <Project Path="PlayerApp.Models.Tests/PlayerApp.Models.Tests.csproj" />
+  <Project Path="PlayerApp.Models/PlayerApp.Models.csproj" />
+  <Project Path="PlayerApp.Services.Tests/PlayerApp.Services.Tests.csproj" />
+  <Project Path="PlayerApp.Services/PlayerApp.Services.csproj" />
+  <Project Path="PlayerApp.XML/PlayerApp.XML.csproj" />
+  <Project Path="PlayerApp/PlayerApp.csproj" />
+</Solution>
